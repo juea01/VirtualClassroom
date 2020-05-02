@@ -1,6 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+// mongoose.connect(keys.mongoURI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
 const app = express();
 
 app.get("/", (req, res) => {

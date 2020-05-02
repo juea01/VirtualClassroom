@@ -3,7 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import styles from "./styles";
 
-import StudentBoard from "./StudentBoard";
+import StudentBoard from "./../StudentBoard";
 
 import theme from "./../../commons/Theme";
 
