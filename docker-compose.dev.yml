@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: virtualclass-server
+    container_name: virtualclass-node-server
+    command: /usr/src/app/node_modules/.bin/nodemon index.js
+    volumes:
+      - ./server/:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "8080:8080"
+    #depends_on:
+    #  - mongo
+    env_file: ./server/config.develop.env
+    environment:
+      - NODE_ENV=development
+    networks:
+      - virtualclass-network
+  #mongo:
+    #image: mongo
+    #volumes:
+      #- data-volume:/data/db
+    #ports:
+      #- "27017:27017"
+    #networks:
+      #- virtualclass-network
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: virtualclass-client
+    container_name: virtualclass-react-client
+    command: yarn start
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - virtualclass-network
+
+networks:
+    virtualclass-network:
+        driver: bridge
+
+volumes:
+    #data-volume:
+    node_modules:
+    web-root:
+      driver: local
