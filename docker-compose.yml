@@ -7,12 +7,13 @@ services:
       dockerfile: Dockerfile
     image: virtualclass-server
     container_name: virtualclass-node-server
-    command: /usr/src/app/node_modules/.bin/nodemon index.js
+    #command: /usr/src/app/node_modules/.bin/nodemon index.js
     volumes:
-      - ./server/:/usr/src/app
-      - /usr/src/app/node_modules
+      #- ./server/:/usr/src/app
+      #- /usr/src/app/node_modules
+      - ./server:/app/server
     ports:
-      - "8080:8080"
+      - 5000:5000
     #depends_on:
     #  - mongo
     env_file: ./server/config.develop.env
@@ -33,15 +34,18 @@ services:
       context: ./client
       dockerfile: Dockerfile
     image: virtualclass-client
+    stdin_open: true
     container_name: virtualclass-react-client
-    command: yarn start
+    command: npm run start
     volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
+      - ./client/src:/app/client/src
+      - ./client/public:/app/client/public
     depends_on:
       - server
+    links:
+        - server
     ports:
-      - "3000:3000"
+      - 3000:3000
     networks:
       - virtualclass-network
 

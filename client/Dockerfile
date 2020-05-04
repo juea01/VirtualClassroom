@@ -3,20 +3,27 @@
 # Stage 1: Build react client
 FROM node:10.16-alpine
 
-# Working directory be app
-WORKDIR /usr/app
+# Creates the client directory in the container
+RUN mkdir -p /app/client
+# Sets the working directory to the client directory
+WORKDIR /app/client
 
-COPY package*.json yarn.lock ./
+# Copies the yarn.lock file to the container
+COPY yarn.lock /app/client/
+# Copies the package.json to the container
+COPY package*.json /app/client/
 
-#Install npm
-#RUN npm install
-# Install dependencies
+
+# Installs the client dependencies
 RUN yarn install
+RUN yarn add axios
 
-# copy local files to app folder
-COPY . .
+# Copies the files from the client directory to the container
+COPY . /app/client/
+
 
 #RUN chown -R $(whoami) /usr/local
 EXPOSE 3000
 
-CMD ["yarn","start"]
+# Runs the client
+CMD ["yarn", "start"]

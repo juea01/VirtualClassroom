@@ -2,20 +2,28 @@
 FROM node:10.16-alpine
 
 # ARG NODE_ENV=development
+# Install nodemon for hot reloading
+RUN npm install -g nodemon
 
-# Create App Directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Create and set the working directory
+RUN mkdir -p /app/server
+WORKDIR /app/server
 
-# Install Dependencies
-COPY package*.json ./
+
+# Copy the dependency files over
+COPY package*.json /app/server/
+COPY *.js /app/server/
+
 
 RUN npm ci
 
-# Copy app source code
-COPY . .
+# Copy the server files over
+COPY . /app/server/
 
 # Exports
-EXPOSE 8080
+EXPOSE 5000
 
-CMD ["npm","start"]
+# Command to run them
+CMD ["nodemon", "index.js"]
+
+#CMD ["npm","start"]
