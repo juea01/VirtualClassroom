@@ -12,3 +12,29 @@ TODO: Look up React and comes up with general required tasks (Ar)
 
 ### Task to do for future.
 TODO: Once we started sharing code, will create git ignore file etc.. by discussing with you guys (Ar)
+
+
+##Henry - Instruction
+1. Clone project from development branch:
+    (Must setup/config Git first)
+    For Frontend guys: git clone -b frontend/development  git@github.com:juea01/VirtualClassroom.git
+    For Backend guys: git clone -b backend/development  git@github.com:juea01/VirtualClassroom.git
+2. Check again which is current branch you are working with:
+    - git branch
+    - or switch between frontend/backend: 
+        git checkout backend/development
+        git checkout frontend/development
+3. Workflow on Git:
+   Master -> frontend/master -> frontend/development
+          -> backend/master  -> backend/development
+   Rule: Development phase works on development branch, once it completed/tested, code will be merged into master branch.
+
+4. Working with Docker containers:
+ - cd: cd /Users/henrypham/VirtualClassroom  (Go to the folder of project that you clone, contains CLIENT and SERVER folders)
+ - Build docker: docker-compose build
+ - Run docker: docker-compose up
+ - Test: Goto browser: http://localhost:3000/
+ 
+
+
+
