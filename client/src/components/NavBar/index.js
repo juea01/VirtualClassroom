@@ -100,7 +100,7 @@ function NarBar(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="static" color="#FFFFFF">
         <Toolbar>
           <IconButton
             edge="start"

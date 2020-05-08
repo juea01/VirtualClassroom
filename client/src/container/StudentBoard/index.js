@@ -14,18 +14,15 @@ class StudentBoard extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.studentBoard}>
-        <Grid container spacing={3}>
+        <Grid container spacing={0}>
           <Grid item xs={12}>
             <NavBar />
           </Grid>
-
           <User />
-
           <Grid container xs={12} sm={8}>
             <Subject />
             <Session />
           </Grid>
-
           <Grid item xs={6} sm={3}>
             <Paper className={classes.paper}>xs=6 sm=3</Paper>
           </Grid>

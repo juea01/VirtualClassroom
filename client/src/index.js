@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./container/App";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
