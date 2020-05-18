@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import User from "./../../components/User";
 import Subject from "./../../components/Subjects";
 import Session from "./../../components/Sessions";
-import NavBar from "./../../components/NavBar";
 
 class StudentBoard extends Component {
   render() {
@@ -15,9 +14,9 @@ class StudentBoard extends Component {
     return (
       <div className={classes.studentBoard}>
         <Grid container spacing={0}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <NavBar />
-          </Grid>
+          </Grid> */}
           <User />
           <Grid container xs={12} sm={8}>
             <Subject />

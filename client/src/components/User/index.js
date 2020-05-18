@@ -37,7 +37,6 @@ class User extends Component {
             <LinearProgress
               className={classes.progressBar}
               variant="determinate"
-              color="secondary"
               value={50}
             />
             <Typography className={classes.percent}>50%</Typography>

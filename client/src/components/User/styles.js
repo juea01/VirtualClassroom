@@ -20,7 +20,6 @@ const styles = (theme) => ({
     alignContent: "center",
     width: theme.spacing(25),
     height: theme.spacing(25),
-  
   },
   userAvatarImg: {
     width: theme.spacing(23),
@@ -49,10 +48,11 @@ const styles = (theme) => ({
   },
   progressBar: {
     borderRadius: 20,
-    backgroundColor: "#ff6c5c",
+    backgroundColor: "#BDBDBD",
     height: theme.spacing(1),
     width: theme.spacing(38),
     bottom: theme.spacing(-2),
+    color: "#689F38",
   },
   profileHead: {
     marginTop: theme.spacing(3),

@@ -13,6 +13,36 @@ import {
 
 import styles from "./styles";
 
+const subjects = [
+  {
+    name: "Reactjs",
+    image: "https://cdn.iconscout.com/icon/free/png-512/react-2-458175.png",
+  },
+  {
+    name: "Vuejs",
+    image: "https://vuejs.org/images/logo.png",
+  },
+  {
+    name: "Nodejs",
+    image:
+      "https://img.favpng.com/16/11/19/node-js-javascript-web-application-express-js-computer-software-png-favpng-cYmJvJyBDcTNbLdSRdNAceLyW.jpg",
+  },
+  {
+    name: "Javascript",
+    image:
+      "https://pluralsight2.imgix.net/paths/images/javascript-542e10ea6e.png",
+  },
+  {
+    name: "Python",
+    image: "https://hackaday.com/wp-content/uploads/2019/09/python-logo.png",
+  },
+  {
+    name: "Laravel",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png",
+  },
+];
+
 class Subjects extends Component {
   render() {
     const { classes } = this.props;
