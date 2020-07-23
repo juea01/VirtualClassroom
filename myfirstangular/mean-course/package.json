@@ -13,7 +13,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.2",
-    "@angular/cdk": "^10.0.1",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.2",
     "@angular/compiler": "~9.1.2",
     "@angular/core": "~9.1.2",
@@ -23,14 +23,16 @@
     "@angular/platform-browser-dynamic": "~9.1.2",
     "@angular/router": "~9.1.2",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
     "package-lock.json": "^1.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.2",
+    "@angular-devkit/build-angular": "^0.1000.3",
     "@angular/cli": "~9.1.2",
     "@angular/compiler-cli": "~9.1.2",
     "@angular/language-service": "~9.1.2",

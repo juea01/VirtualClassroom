@@ -13,17 +13,16 @@ import {MatDividerModule} from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {PostCreateComponent} from './posts/post-create/post-create.component';
-import { HeaderComponent } from './header/header.component';
 import { VclassHeaderComponent } from './vclassheader/vclassheader.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
+import { HeaderToolbarComponent } from './headertoolbar/headertoolbar.component';
+import { MainHeaderComponent } from './mainheader/mainheader.component';
 import {BodyComponent}  from './body/body.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent, HeaderComponent, VclassHeaderComponent, PostListComponent,BodyComponent
+     VclassHeaderComponent,HeaderToolbarComponent,BodyComponent,MainHeaderComponent
   ],
   imports: [
     FormsModule,

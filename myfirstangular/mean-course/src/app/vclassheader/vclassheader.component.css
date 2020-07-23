@@ -1,19 +1,11 @@
-.right {
-  float: right;
-  margin-left: 70%;
-}
-
-.smallVerticalSpacer{
-  padding-left: 15px;
+.container {
+  width:100%;
 }
 
 .verticalLine{
   border-left: 6px solid black;
-  border-left-width: thin;
-  height: 90%;
-  left: 1rem;
-  position: absolute;
-  top: 0;
+  height: 50px;
+  overflow: auto;
 }
 
 .horizontalLine{
@@ -26,19 +18,9 @@
 
 
   }
+.navbar{
+  height: 50px;
+}
 
-  #header{
-    top:0;
-    color:red;
-    position: absolute;
-    left: 1.3rem;
-    font-size: 100%;
-  }
 
-  .middle{
-    left: 30%;
-    position: absolute;
-    height: 10%;
-    width: 20%;
-    border-style: solid; border-width: thin; border-color: #FFFFFF
-  }
+
