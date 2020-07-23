@@ -1,0 +1,44 @@
+.right {
+  float: right;
+  margin-left: 70%;
+}
+
+.smallVerticalSpacer{
+  padding-left: 15px;
+}
+
+.verticalLine{
+  border-left: 6px solid black;
+  border-left-width: thin;
+  height: 90%;
+  left: 1rem;
+  position: absolute;
+  top: 0;
+}
+
+.horizontalLine{
+  border-bottom: 6px solid black;
+  border-bottom-width: thin;
+  width: 10%;
+  left: 45%;
+  margin-left: -3px;
+  top: 5%;
+
+
+  }
+
+  #header{
+    top:0;
+    color:red;
+    position: absolute;
+    left: 1.3rem;
+    font-size: 100%;
+  }
+
+  .middle{
+    left: 30%;
+    position: absolute;
+    height: 10%;
+    width: 20%;
+    border-style: solid; border-width: thin; border-color: #FFFFFF
+  }
