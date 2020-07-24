@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
@@ -17,12 +17,14 @@ import { VclassHeaderComponent } from './vclassheader/vclassheader.component';
 import { HeaderToolbarComponent } from './headertoolbar/headertoolbar.component';
 import { MainHeaderComponent } from './mainheader/mainheader.component';
 import {BodyComponent}  from './body/body.component';
+import {BsDropdownModule} from "ngx-bootstrap/dropdown";
+import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import { SigninComponent } from './signin/signin.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-     VclassHeaderComponent,HeaderToolbarComponent,BodyComponent,MainHeaderComponent
+    AppComponent, VclassHeaderComponent, HeaderToolbarComponent, BodyComponent, MainHeaderComponent, SigninComponent
   ],
   imports: [
     FormsModule,
@@ -36,7 +38,10 @@ import {BodyComponent}  from './body/body.component';
     MatExpansionModule,
     MatIconModule,
     HttpClientModule,
-    MatDividerModule
+    MatDividerModule,
+    NgxIntlTelInputModule,
+    BsDropdownModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
