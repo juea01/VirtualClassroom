@@ -10,6 +10,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {HttpClientModule} from '@angular/common/http';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,11 +21,12 @@ import {BodyComponent}  from './body/body.component';
 import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { SigninComponent } from './signin/signin.component';
+import {SubjectComponent} from './student/subject/subject.component'
 
 
 @NgModule({
   declarations: [
-    AppComponent, VclassHeaderComponent, HeaderToolbarComponent, BodyComponent, MainHeaderComponent, SigninComponent
+    AppComponent, VclassHeaderComponent, HeaderToolbarComponent, BodyComponent, MainHeaderComponent, SigninComponent, SubjectComponent
   ],
   imports: [
     FormsModule,
@@ -39,6 +41,7 @@ import { SigninComponent } from './signin/signin.component';
     MatIconModule,
     HttpClientModule,
     MatDividerModule,
+    MatProgressBarModule,
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     ReactiveFormsModule
