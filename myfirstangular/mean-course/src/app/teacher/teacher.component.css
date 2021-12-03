@@ -1,0 +1,23 @@
+.subject-card{
+
+  align-content: center;
+  width: 90px;
+}
+
+.live-card{
+  width: 100%;
+}
+
+.mat-icon{
+ font-size: 30px;
+}
+
+.round-header-image {
+
+  background-size: cover;
+}
+
+
+.example-icon{
+  float: left;
+}

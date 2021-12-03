@@ -8,3 +8,10 @@
   display: block;
   margin-top: 1rem;
 }
+
+body {
+  background-image: url('../../assets/images/HomeBackground.PNG');
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+}

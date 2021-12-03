@@ -1,0 +1,181 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-3 bg-warning">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-md-12">
+            <mat-card>
+              <div mat-card-avatar style="background-image: url('../../../assets/images/guyStudent.jpg');" class="round-header-image">
+              </div>
+              <mat-card-content>
+                <p>
+                  {{student.name}}
+                </p>
+                <p>
+                  {{student.grade}}
+                </p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card>
+              <mat-card-content><h3>Profile Completion</h3>
+              <div class="row">
+                <div class="col-7 col-sm-7 col-md-7">
+                  <div class="mb-2"></div>
+                  <mat-progress-bar mode="determinate" [value]="progressBarValue"></mat-progress-bar>
+                </div>
+                <div class="col-5 col-sm-5 col-md-5">
+                  <p>{{progressBarValue}}</p>
+                </div>
+              </div>
+              <button mat-mini-fab color="primary" label></button><a href="">Add your school ></a><br/><br/>
+              <button mat-mini-fab color="primary" label></button><a href="">Join a group ></a>
+            </mat-card-content>
+
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-7 bg-success">
+
+        <div class="container-fluid">
+              <div class="row">
+              <div class="col-md-2">
+                <mat-card class="subject-card">
+                  <mat-icon>exposure</mat-icon>
+                  <mat-card-content><p style="text-align: center;">Math</p></mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-md-2">
+                <mat-card class="subject-card"><mat-icon aria-hidden="false" aria-label="Example group icon">language</mat-icon>
+                  <mat-card-content><p style="text-align: center;">English</p></mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-md-2">
+                <mat-card class="subject-card"><mat-icon  aria-hidden="false" aria-label="Example group icon">science</mat-icon>
+                  <mat-card-content><p style="text-align: center;">Science</p></mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-md-2">
+                <mat-card class="subject-card"><mat-icon  aria-hidden="false" aria-label="Example group icon">exposure_plus_2</mat-icon>
+                  <mat-card-content><p style="text-align: center;">Qudratic Math</p></mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-md-2">
+                <mat-card class="subject-card"><mat-icon  aria-hidden="false" aria-label="Example group icon">translate</mat-icon>
+                  <mat-card-content><p style="text-align: center;">Immortal Language</p></mat-card-content>
+                </mat-card>
+              </div>
+              <div class="col-md-2">
+                <mat-card class="subject-card"><mat-icon  aria-hidden="false" aria-label="Example group icon">groups</mat-icon>
+                  <mat-card-content><p style="text-align: center;">Social</p></mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+            <br/>
+
+            <div class="row">
+              <div class="col-md-12">
+                <mat-card class="w-100 p-3">
+                  <mat-card-title> <mat-icon class="float-sm-left float-md-left mr-2" aria-hidden="false" aria-label="Example group icon">settings_input_antenna</mat-icon> Live now </mat-card-title>
+                  <div class="container-fluid">
+                    <div class="row">
+
+                     <ng-template ngFor let-classRoom [ngForOf]="getLiveClassRooms()">
+                      <div class="col-6 col-md-4 p-2">
+                        <div *ngIf="classRoom !== undefined">
+                          <mat-card>
+                            <mat-card-title>{{classRoom.subject}}</mat-card-title>
+                            <div class="float-md-right">Live Now</div>
+                            <mat-icon class="float-sm-left float-md-left mr-2" aria-hidden="false" aria-label="Example group icon">groups</mat-icon>
+                            <p >Session</p>
+                            <div mat-card-avatar style="background-image: url('../../../assets/images/girlStudent.jpg');float: left;" class="round-header-image">
+                            </div>
+                            <mat-icon class="float-md-left" aria-hidden="false" aria-label="Example group icon">{{classRoom.category.toLowerCase()}}</mat-icon>
+                            <p>{{classRoom.category}}</p>
+                            <div>
+                              <button mat-raised-button  [routerLink]="['/classroom',classRoom.subject]">JOIN SESSION</button>
+                            </div>
+                          </mat-card>
+                        </div>
+
+
+                      </div>
+                      </ng-template>
+
+
+                    </div>
+                  </div>
+
+                </mat-card>
+              </div>
+            </div>
+            <br/>
+
+
+            <div class="row">
+              <div class="col-md-12">
+                <mat-card class="w-100 p-3">
+                  <mat-card-title> All classes </mat-card-title>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <ng-template ngFor let-classRoom [ngForOf]="getClassRooms()">
+                        <div class="col-6 col-md-4 p-2">
+
+                          <mat-card>
+                            <mat-card-title>{{classRoom.subject}}</mat-card-title>
+                            <div class="float-md-right">Live Now</div>
+                            <mat-icon class="float-sm-left float-md-left mr-2" aria-hidden="false" aria-label="Example group icon">groups</mat-icon>
+                            <p >Session</p>
+                            <div mat-card-avatar style="background-image: url('../../../assets/images/girlStudent.jpg');float: left;" class="round-header-image">
+                            </div>
+                            <mat-icon class="float-md-left" aria-hidden="false" aria-label="Example group icon">{{classRoom.category.toLowerCase()}}</mat-icon>
+                            <p>{{classRoom.category}}</p>
+
+                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'accepted'">
+                              <button mat-raised-button disabled>JOIN SESSION</button>
+                            </div>
+
+                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'not-registered'">
+                              <button mat-raised-button (click)="requestToJoinSession(student.id, classRoom.id)">Request To Join</button>
+                            </div>
+
+                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'pending'">
+                              <button mat-raised-button disabled>Decision Pending</button>
+                            </div>
+
+                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'rejected'">
+                              <div class="bg-warning">Rejected, contact Admin</div>
+                            </div>
+
+
+                          </mat-card>
+
+                        </div>
+                     </ng-template>
+                   </div>
+                   </div>
+                </mat-card>
+              </div>
+            </div>
+
+        </div>
+
+
+
+     </div>
+
+    <div class="col-md-2 bg-info">
+
+    </div>
+
+</div>
+</div>
+

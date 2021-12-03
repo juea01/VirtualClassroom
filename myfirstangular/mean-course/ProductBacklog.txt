@@ -1,0 +1,67 @@
+14/10/21
+
+TODO:
+
+Integrate with ui so that admin can schedule and make it presentable.
+
+	Admin assign class and time to lecturer
+	
+	Students can be associated to zero or more classes
+	Student submit request to join particular class room and Admin accept or reject
+	
+	Student allow to join class after lecturer started the session
+
+A classroom must have one teacher and zero or more students (condition apply such as minimum of 5 students must be enrolled etc...)
+
+Lecturer must be associated to zero or more classes
+
+Student given names and account user name are different (account user name and password are used to sign in)
+
+
+
+category for classromm creation on admin page with drop down box
+
+Need some organizations for admin decisions for example accepted, rejected etc...
+
+
+
+Video Conferencing
+* messaging
+* join to particular class
+* page for teacher to view, join class
+* student can raise hand (on, off)
+
+
+why a first student can't initiate chat message?
+Why video from students are not showing up? (Look up some better solution here as well https://github.com/peers/peerjs/issues/808, currently
+set time out is used to solve the problem temporarily)
+if set time out solution is used for production, might need to use for queue data structure for multiple, near real time new user requests?
+
+*Student
+loading all students at front end is not a good idea and not necessary
+
+
+
+read async, promise, 
+https://www.freecodecamp.org/news/write-your-own-promisify-function-from-scratch/
+https://nodejs.org/en/docs/guides/dont-block-the-event-loop/
+
+Done
+
+Way to distinguish between teacher and student in video conferencing page (probably teacher flag from backend)?
+	Student, Teacher and Admin Sign in
+A student request to join a class can't be request again if status is pending (for admin review) or approved.
+
+
+
+Client
+C:\Users\akash\Documents\GitHub\VirtualClassroom\myfirstangular\mean-course  (ng serve)
+
+From terminal (for mocked server for getting student data etc...)
+ C:\Users\akash\Documents\GitHub\VirtualClassroom\myfirstangular\mean-course>  (npm run json)
+
+Server
+ video conferencing server  C:\Users\akash\Documents\GitHub\VirtualClassroom\eworldtrade-express  (nodemon)
+
+
+ 

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-transparent">
 
 
-      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2" [ngClass]="{'show': navbarOpen}">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" routerLink="/"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example person icon">person</mat-icon>
@@ -13,18 +13,26 @@
             <a class="nav-link" routerLink="/student"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example group icon">group</mat-icon>
               <span>Student</span></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/teacher"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example group icon">group</mat-icon>
+              <span>Teacher</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/classroom"><mat-icon class="example-icon" aria-hidden="false" aria-label="Example dvr icon">dvr</mat-icon>
+              <span>Class Room</span></a>
+          </li>
         </ul>
       </div>
       <div class="mx-auto order-0">
         <a class="navbar-brand mx-auto" routerLink="/"><app-mainheader></app-mainheader></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <button class="navbar-toggler" type="button" (click)="toogleNavbar()">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-              <a class="nav-link" routerLink="/signin"> <button  mat-raised-button color="primary">SIGN IN</button></a>
+              <a class="nav-link" routerLink="/signin/student"> <button  mat-raised-button color="primary">SIGN IN</button></a>
           </li>
 
       </ul>

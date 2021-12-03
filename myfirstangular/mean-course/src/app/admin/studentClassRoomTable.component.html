@@ -1,0 +1,19 @@
+<table class="table table-sm table-stripped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Class Id</th><th>Student Id</th><th>Admin Decision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sc of getStudentClassRooms()">
+      <td>{{sc.id}}</td>
+      <td>{{sc.classRoomId}}</td>
+      <td>{{sc.studentId}}</td>
+      <td>{{sc.adminDecision}}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="accept(sc.id)">Accept</button>
+      </td>
+      <td><button class="btn btn-sm btn-danger" (click)="reject(sc.id)">Reject</button></td>
+    </tr>
+  </tbody>
+</table>

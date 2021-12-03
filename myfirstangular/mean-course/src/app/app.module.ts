@@ -22,12 +22,22 @@ import {BodyComponent}  from './body/body.component';
 import {BsDropdownModule} from "ngx-bootstrap/dropdown";
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import { SigninComponent } from './signin/signin.component';
-import {SubjectComponent} from './student/subject/subject.component'
+import { AuthComponent } from './signin/auth.component';
+import {SubjectComponent} from './student/student.component';
+import { TeacherComponent } from './teacher/teacher.component';
+import {RegistrationComponent} from './registration/registration.component';
+import { FooterComponent } from './footer/footer.component';
+import { ClassroomComponent } from './classroom/classroom.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+import { ModelModule } from './model/model.module';
+
+const config: SocketIoConfig = { url: `http://${location.hostname}:3000`, options: {} };
 
 @NgModule({
   declarations: [
-    AppComponent, VclassHeaderComponent, HeaderToolbarComponent, BodyComponent, MainHeaderComponent, SigninComponent, SubjectComponent
+    AppComponent, VclassHeaderComponent, HeaderToolbarComponent, BodyComponent, MainHeaderComponent, SigninComponent, AuthComponent, SubjectComponent, TeacherComponent,RegistrationComponent, FooterComponent, ClassroomComponent
   ],
   imports: [
     FormsModule,
@@ -46,7 +56,9 @@ import {SubjectComponent} from './student/subject/subject.component'
     NgxIntlTelInputModule,
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    ModelModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

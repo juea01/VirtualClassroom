@@ -1,0 +1,17 @@
+/*
+This is for push div so that footer will be sticking to bottom for scenario where there is only one row of deals on full desktop screen.
+This might need to updated once the footer got larger than this height.
+ Push must be same height as footer
+*/
+#divPush {
+	width: 99%;
+	margin:auto;
+	padding:10px;
+	height: 100px;  /* Push must be same height as footer*/
+	}
+
+  footer {
+    background-color: rgba(0, 0, 255, 1);
+    color: rgba(255,255,255,1);
+    height: 100px;
+  }

@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col bg-dark text-white">
+      <a class="navbar-brand">Online Learning School</a>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-3">
+      <button class="btn btn-outline-info btn-block" routerLink="/admin/main/classRoomTable" routerLinkActive="active">Class Rooms</button>
+      <button class="btn btn-outline-info btn-block" routerLink="/admin/main/studentClassRooms" >Student ClassRooms</button>
+      <button class="btn btn-outline-danger btn-block" (click)="logout()">
+        Logout
+      </button>
+    </div>
+    <div class="col-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="bg-danger mt-2 p-2 text-center text-white" *ngIf="errorMessage != null">
+  {{errorMessage}}
+</div>
+<div class="p-2">
+  <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" name="username" [(ngModel)]="username" required />
+    </div>
+    <div *ngIf="isStudentRoute == false" class="form-group">
+      <label>Qualifications</label>
+      <input class="form-control" name="qualifications" [(ngModel)]="qualifications" required />
+    </div>
+    <div *ngIf="isStudentRoute == true" class="form-group">
+      <label>Grade</label>
+      <input class="form-control" name="grade" [(ngModel)]="grade" required />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input class="form-control" name="email" [(ngModel)]="email" required />
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input class="form-control" name="phone" [(ngModel)]="phone" required />
+    </div>
+    <!--TODO: Password Re-enter field-->
+    <div class="form-group">
+      <label>Password</label>
+      <input class="form-control" name="password" [(ngModel)]="password" required />
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary m-1" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

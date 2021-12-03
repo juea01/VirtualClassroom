@@ -2,8 +2,12 @@
   <div class="mt-2">
     <mat-card-title>CONTINUE AS A STUDENT</mat-card-title>
   </div>
-  <div class="mt-3">
-    <a class="text-info" routerLink="/register" routerLinkActive="active">Not a student? Register as a teacher</a>
+  <div *ngIf="isSuccessRegistration==false" class="mt-3">
+    <a class="text-info" routerLink="/register/teacher" routerLinkActive="active">Not a student? Register as a teacher</a><br/>
+    <a class="text-info" routerLink="/register/student" routerLinkActive="active">Student Registration</a>
+  </div>
+  <div *ngIf="isSuccessRegistration==true" class="mt-3">
+    <mat-card-content>Your registration has been successful!</mat-card-content>
   </div>
 
   <form class="mt-3" #f="ngForm" [formGroup]="phoneForm">

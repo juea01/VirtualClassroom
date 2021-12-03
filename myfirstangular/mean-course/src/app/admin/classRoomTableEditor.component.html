@@ -1,0 +1,61 @@
+<div class="bg-primary p-2 text-white">
+  <h5>{{ editing ? "Edit" : "Create"}}</h5>
+</div>
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+  <div class="form-group">
+    <label>Class Name </label>
+    <input class="form-control" name="subject" [(ngModel)]="classRoom.subject"/>
+  </div>
+  <div class="form-group">
+    <label>Category </label>
+    <input class="form-control" name="subject" [(ngModel)]="classRoom.category"/>
+  </div>
+  <div class="form-group">
+    <label>Description </label>
+    <input class="form-control" name="description" [(ngModel)]="classRoom.description"/>
+  </div>
+  <div class="form-group">
+    <label>Maximum Number of Students</label>
+    <input class="form-control" name="maxNumbersStudents" [(ngModel)]="classRoom.maxNumberStudents"/>
+  </div>
+  <div class="form-group">
+    <label>Start Date</label>
+    <input class="form-control" name="startDate" [(ngModel)]="classRoom.timeTable.startDate" placeholder="mm/dd/yyyy"/>
+  </div>
+  <div class="form-group">
+    <label>End Date </label>
+    <input class="form-control" name="endDate" [(ngModel)]="classRoom.timeTable.endDate" placeholder="mm/dd/yyyy"/>
+  </div>
+  <div class="form-group">
+    <label>Start Time</label>
+    <input class="form-control" name="startTime" [(ngModel)]="classRoom.timeTable.startTime" placeholder="please enter 24 hours format"/>
+  </div>
+  <div class="form-group">
+    <label>End Time</label>
+    <input class="form-control" name="endTime" [(ngModel)]="classRoom.timeTable.endTime" placeholder="please enter 24 hours format"/>
+  </div>
+  <div class="form-group">
+    <button (click)="addDays()">
+      Add days of the Week
+    </button>
+    <div *ngFor="let day of days.controls; index as i">
+      <input [formControl]="days.controls[i]" />
+      <button (click)="removeDays(i)">X</button>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Teacher Name</label>
+    <input class="form-control" name="teacherName" [(ngModel)]="classRoom.teacher"/>
+  </div>
+  <div class="form-group">
+    <label>More info editing will come here...</label>
+  </div>
+  <button type="submit" class="btn btn-primary m-1" [class.btn-warning]="editing">
+    {{editing ? "Save": "Create"}}
+  </button>
+  <button type="reset" class="btn btn-secondary" routerLink="admin/main/classRooms">
+    Cancel
+  </button>
+</form>
+
+

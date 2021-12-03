@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>Virtual Classroom English 101</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+
+      <div>
+        <i class="fa fa-microphone"></i>
+      </div>
+      <div>
+        <i class="fa fa-camera"></i>
+      </div>
+      <div>
+        <i class="fa fa-user-plus"></i>
+      </div>
+      <div>
+        <button *ngIf="handsUp === true" (click)="toogleHandsUp()"> Hands Down</button>
+        <button *ngIf="handsUp === false" (click)="toogleHandsUp()"> Hands Up</button>
+      </div>
+    </div>
+    <div class="col-8">
+      <h3>Grid 1</h3>
+      <div id="teacher-video-wrapper">
+
+      </div>
+
+    </div>
+    <div class="col-3">
+      <div id="main__chat_window">
+        <ul *ngFor="let message of getMessages()" class="messages">{{message.messagerName+":"}}{{message.message}}</ul>
+      </div>
+      <br/>
+      <textarea id="chat_message" #chat_message type="text" autocomplete="off" placeholder="Type your message here..."></textarea>
+      <div>
+        <button (click)="sendMessage(chat_message.value)">Send</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h3>Grid 2</h3>
+        <div id="student-video-wrapper">
+
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { ActivatedRoute} from "@angular/router";
 import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input';
 
 @Component({
@@ -9,7 +10,11 @@ import { SearchCountryField, TooltipLabel, CountryISO } from 'ngx-intl-tel-input
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  public isSuccessRegistration: boolean = false;
+
+  constructor(activeRoute: ActivatedRoute) {
+    this.isSuccessRegistration =  activeRoute.snapshot.params["mode"]=="success";
+   }
 
   ngOnInit(): void {
   }
