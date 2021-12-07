@@ -64,6 +64,7 @@ From terminal (for mocked server for getting student data etc...)
 
 Server
  video conferencing server  C:\Users\akash\Documents\GitHub\VirtualClassroom\eworldtrade-express  (nodemon)
+API Server		    C:\Users\akash\Documents\Node_Practice\virtualClassroomBackend
 
 
  
