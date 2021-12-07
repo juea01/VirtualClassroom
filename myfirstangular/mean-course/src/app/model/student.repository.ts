@@ -19,24 +19,21 @@ export class StudentRepository {
     this.dataSource.getStudentByUserName(this.helperService.getSignedInUser()).subscribe(data=>{
         this.students.push(data);
       });
-
-      dataSource.getStudentClassRooms().subscribe(data => {
-        this.studentClassRooms = data;
-      })
    } else {
     dataSource.getStudents().subscribe(data => {
       this.students = data;
       });
-
-      dataSource.getStudentClassRooms().subscribe(data => {
-        this.studentClassRooms = data;
-      })
    }
+
+
+   dataSource.getStudentClassRooms().subscribe(data => {
+    this.studentClassRooms = data;
+  })
 
   }
 
-  getStudent(id: number): Student {
-    return this.students.find(s => s.id == id);
+  getStudent(id: string): Student {
+    return this.students.find(s => s._id == id);
   }
 
   getStudentByUserName(name: string): Student {
@@ -52,40 +49,39 @@ export class StudentRepository {
   }
 
   saveStudent(student: Student) {
-    if (student.id == null || student.id == 0) {
+    if (!student._id) {
       this.dataSource.saveStudent(student).subscribe(s => this.students.push(s));
     }
   }
 
   requestToJoin(studentClassRoom: StudentClassRoom) {
-    if ((studentClassRoom.classRoomId !== null && studentClassRoom.classRoomId !== 0) && (studentClassRoom.studentId !== null
-      && studentClassRoom.studentId !== 0)) {
-        console.log("Saving students");
-        this.dataSource.saveStudentClassRoom(studentClassRoom).subscribe( stCl => this.studentClassRooms.push(stCl));
-      } else {
-        console.log("Can't Save students");
+    if ((studentClassRoom.classroom._id) && (studentClassRoom.student._id)) {
+        this.dataSource.saveStudentClassRoom(studentClassRoom).subscribe( stCl =>
+          {
+            this.studentClassRooms.push(stCl);
+        });
       }
   }
 
 
   updateStudentClassRoom(studentClassRoom: StudentClassRoom) {
-    this.dataSource.updateStudentClassRoom(studentClassRoom).subscribe(sc => {this.studentClassRooms.splice(this.studentClassRooms.findIndex(sc => sc.id == studentClassRoom.id),1,studentClassRoom )
+    this.dataSource.updateStudentClassRoom(studentClassRoom).subscribe(sc => {this.studentClassRooms.splice(this.studentClassRooms.findIndex(sc => sc._id == studentClassRoom._id),1,studentClassRoom )
     });
   }
 
-  getStudentClassRoomByStudentClassRoomId(studentId: number, classId: number):StudentClassRoom {
+  getStudentClassRoomByStudentClassRoomId(studentId: string, classId: string):StudentClassRoom {
     return this.studentClassRooms.find(
-      sc => (sc.studentId === studentId && sc.classRoomId === classId) );
+      sc => (sc.student._id === studentId && sc.classroom._id  === classId) );
   }
 
-  getStudentClassRoomByStudentId(studentId: number):StudentClassRoom {
+  getStudentClassRoomByStudentId(studentId: string):StudentClassRoom {
     return this.studentClassRooms.find(
-      sc => (sc.studentId === studentId) );
+      sc => (sc.student._id === studentId) );
   }
 
-  getStudentClassRoomById(studentClassRoomId: number):StudentClassRoom {
+  getStudentClassRoomById(studentClassRoomId: string):StudentClassRoom {
     return this.studentClassRooms.find(
-      sc => (sc.id === studentClassRoomId) );
+      sc => (sc._id === studentClassRoomId) );
   }
 
 

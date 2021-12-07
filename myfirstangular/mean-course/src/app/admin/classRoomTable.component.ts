@@ -15,7 +15,7 @@ export class ClassRoomTableComponent {
   }
 
   //more methods such as delete etc..
-  deleteClassRoom(id: number) {
+  deleteClassRoom(id: string) {
     this.repository.deleteClassRoom(id);
   }
 }

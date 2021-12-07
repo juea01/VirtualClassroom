@@ -40,6 +40,8 @@ if set time out solution is used for production, might need to use for queue dat
 *Student
 loading all students at front end is not a good idea and not necessary
 
+DO we need to subscribe nested objects?
+Drop down box for teacher and also login and authentication
 
 
 read async, promise, 

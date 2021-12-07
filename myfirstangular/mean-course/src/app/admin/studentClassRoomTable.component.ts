@@ -21,13 +21,13 @@ export class StudentClassRoomTableComponent {
   //   this.repository.deleteClassRoom(id);
   // }
 
-  accept(id: number) {
+  accept(id: string) {
     this.studentClassRoom = this.repository.getStudentClassRoomById(id);
     this.studentClassRoom.adminDecision = this.helper.getAcceptAdminState();
     this.repository.updateStudentClassRoom(this.studentClassRoom);
   }
 
-  reject(id: number) {
+  reject(id: string) {
     this.studentClassRoom = this.repository.getStudentClassRoomById(id);
     this.studentClassRoom.adminDecision = this.helper.getRejectAdminState();
     this.repository.updateStudentClassRoom(this.studentClassRoom);

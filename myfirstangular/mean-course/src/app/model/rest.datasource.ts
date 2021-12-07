@@ -55,7 +55,7 @@ export class RestDataSource {
 
 
   updateStudentClassRoom(studentClassRoom: StudentClassRoom): Observable<StudentClassRoom> {
-    return this.http.put<StudentClassRoom>(`${this.baseUrl}studentClassRooms/${studentClassRoom.id}`, studentClassRoom, this.getOptions());
+    return this.http.put<StudentClassRoom>(`${this.baseUrl}studentClassRooms/${studentClassRoom._id}`, studentClassRoom, this.getOptions());
   }
 
   getTeachers(): Observable<Teacher[]> {
@@ -80,10 +80,10 @@ export class RestDataSource {
 
 
    updateClassRoom(classRoom: ClassRoom): Observable<ClassRoom> {
-    return this.http.put<ClassRoom>(`${this.baseUrl}classRooms/${classRoom.id}`, classRoom, this.getOptions());
+    return this.http.put<ClassRoom>(`${this.baseUrl}classRooms/${classRoom._id}`, classRoom, this.getOptions());
   }
 
-  deleteClassRoom(id: number): Observable<ClassRoom> {
+  deleteClassRoom(id: string): Observable<ClassRoom> {
     return this.http.delete<ClassRoom>(`${this.baseUrl}classRooms/${id}`,this.getOptions());
   }
 
@@ -91,7 +91,8 @@ export class RestDataSource {
     return this.http.post<any>(this.baseUrl + "login",{
       name: user, password: pass, flag
     }).pipe(map(response =>{
-      this.auth_token = response.success ? response.token : null;
+      //this.auth_token = response.success ? response.token : null;
+      this.auth_token = "test";
       return response.success;
     }));
   }

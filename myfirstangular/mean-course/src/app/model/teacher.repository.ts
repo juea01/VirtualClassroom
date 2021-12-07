@@ -23,8 +23,8 @@ export class TeacherRepository {
     }
   }
 
-  getTeacher(id: number): Teacher {
-    return this.teachers.find(t => t.id == id);
+  getTeacher(id: string): Teacher {
+    return this.teachers.find(t => t._id == id);
   }
 
   getTeacherByName(name: string): Teacher {
@@ -40,7 +40,7 @@ export class TeacherRepository {
   }
 
   saveTeacher(teacher: Teacher) {
-    if (teacher.id == null || teacher.id == 0) {
+    if (!teacher._id) {
       this.dataSource.saveTeacher(teacher).subscribe(t => this.teachers.push(t));
     }
   }

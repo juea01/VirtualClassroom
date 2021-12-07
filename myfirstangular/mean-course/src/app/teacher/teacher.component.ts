@@ -29,8 +29,9 @@ export class TeacherComponent {
     let classRooms: ClassRoom[];
     classRooms = this.classRepository.getClassRooms().map(
       cla => {
-          if (cla.teacher === this.helperService.getSignedInUser())
-          {  return cla};
+              if (cla.teacher.name === this.helperService.getSignedInUser()) {
+                return cla;
+              }
         }
     )
 

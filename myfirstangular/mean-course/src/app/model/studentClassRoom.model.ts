@@ -1,3 +1,6 @@
+import { ClassRoom } from "./classRoom.model";
+import { Student } from "./student.model";
+
 export class StudentClassRoom {
-  constructor(public id?: number, public classRoomId?: number, public studentId?: number, public adminDecision?: string){}
+  constructor(public _id?: string, public classroom?: ClassRoom, public student?: Student, public adminDecision?: string){}
 }

@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { ClassRoom } from "./classRoom.model";
-import { ClassRoomRemote } from "./classRoomRemote.model";
 import { RestDataSource } from "./rest.datasource";
 import { StudentClassRoom } from "./studentClassRoom.model";
 import { Message } from "./message.model";
+import { Teacher } from "./teacher.model";
 
 @Injectable()
 export class ClassRoomRepository {
@@ -33,27 +33,27 @@ export class ClassRoomRepository {
     return this.classRooms;
   }
 
-  getClassRoom(id: number): ClassRoom {
-    return this.classRooms.find( c => c.id == id);
+  getClassRoom(id: string): ClassRoom {
+    return this.classRooms.find( c => c._id == id);
   }
 
   saveClassRoom(classRoom: ClassRoom) {
     //console.log("remote server call"+ this.dataSource.authenticateRemote());
-    if (classRoom.id == null || classRoom.id == 0) {
+    if (!classRoom._id) {
       this.dataSource.saveClassRoom(classRoom)
         .subscribe(c => this.classRooms.push(c));
     } else {
       this.dataSource.updateClassRoom(classRoom)
-        .subscribe(c => {this.classRooms.splice(this.classRooms.findIndex(c => c.id == classRoom.id),1,classRoom);
+        .subscribe(c => {this.classRooms.splice(this.classRooms.findIndex(c => c._id == classRoom._id),1,classRoom);
     });
   }
  }
 
   //here delete function and other more functions
-  deleteClassRoom(id: number) {
+  deleteClassRoom(id: string) {
     this.dataSource.deleteClassRoom(id).subscribe(c => {
       this.classRooms.splice(this.classRooms.
-        findIndex(c => c.id == id),1);
+        findIndex(c => c._id == id),1);
     })
   }
 

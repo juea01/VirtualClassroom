@@ -139,19 +139,19 @@
                             <mat-icon class="float-md-left" aria-hidden="false" aria-label="Example group icon">{{classRoom.category.toLowerCase()}}</mat-icon>
                             <p>{{classRoom.category}}</p>
 
-                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'accepted'">
+                            <div *ngIf="getRegisteredInfo(student._id, classRoom._id) == 'accepted'">
                               <button mat-raised-button disabled>JOIN SESSION</button>
                             </div>
 
-                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'not-registered'">
-                              <button mat-raised-button (click)="requestToJoinSession(student.id, classRoom.id)">Request To Join</button>
+                            <div *ngIf="getRegisteredInfo(student._id, classRoom._id) == 'not-registered'">
+                              <button mat-raised-button (click)="requestToJoinSession(student, classRoom)">Request To Join</button>
                             </div>
 
-                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'pending'">
+                            <div *ngIf="getRegisteredInfo(student._id, classRoom._id) == 'pending'">
                               <button mat-raised-button disabled>Decision Pending</button>
                             </div>
 
-                            <div *ngIf="getRegisteredInfo(student.id, classRoom.id) == 'rejected'">
+                            <div *ngIf="getRegisteredInfo(student._id, classRoom._id) == 'rejected'">
                               <div class="bg-warning">Rejected, contact Admin</div>
                             </div>
 

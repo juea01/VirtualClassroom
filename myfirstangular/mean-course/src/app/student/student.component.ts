@@ -35,15 +35,15 @@ export class SubjectComponent {
 
     //check if admin has approved or not for this student from student classes repo
     let registeredClasses = this.repository.getStudentClassRooms().map(sc => {
-      if (sc.studentId === this.student.id && sc.adminDecision === this.helperService.getAcceptAdminState())
-      {return sc.classRoomId};
+      if (sc.student._id === this.student._id && sc.adminDecision === this.helperService.getAcceptAdminState())
+      {return sc.classroom._id};
     })
 
 
     //get the classes from class room repo and fliter out the classes that are live now
     let classRooms: ClassRoom[];
     classRooms = this.classRepository.getClassRooms().map(cla =>
-      {if (registeredClasses.includes(cla.id)) {
+      {if (registeredClasses.includes(cla._id)) {
         //check time
         if (Date.parse(cla.timeTable.startDate) <= this.date.getTime() && Date.parse(cla.timeTable.endDate) >= this.date.getTime() ) {
 
@@ -82,17 +82,17 @@ export class SubjectComponent {
     return classRooms;
   }
 
-  requestToJoinSession(stId: number, classId: number) {
+  requestToJoinSession(student: Student, classRoom: ClassRoom) {
     this.studentClassRoom = new StudentClassRoom();
-    this.studentClassRoom.studentId = stId;
-    this.studentClassRoom.classRoomId = classId;
+    this.studentClassRoom.student = student;
+    this.studentClassRoom.classroom = classRoom;
     this.studentClassRoom.adminDecision = this.helperService.getDefaultAdminState();
     this.repository.requestToJoin(this.studentClassRoom);
   }
 
-  getRegisteredInfo(studentId: number, classId: number): string {
+  getRegisteredInfo(studentId: string, classId: string): string {
     this.studentClassRoom = this.repository.getStudentClassRoomByStudentClassRoomId(studentId,classId);
-    if( this.studentClassRoom !== undefined) {
+    if( this.studentClassRoom) {
       return this.studentClassRoom.adminDecision;
     }
     return "not-registered";
