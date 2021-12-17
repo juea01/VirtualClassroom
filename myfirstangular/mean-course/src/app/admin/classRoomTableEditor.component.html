@@ -1,7 +1,87 @@
 <div class="bg-primary p-2 text-white">
   <h5>{{ editing ? "Edit" : "Create"}}</h5>
 </div>
-<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="subject">Subject: </label>
+    <input class="form-control" id="subject"  type="text" formControlName="subject">
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category: </label>
+    <input class="form-control" id="category"  type="text" formControlName="category">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description: </label>
+    <input class="form-control" id="description"  type="text" formControlName="description" />
+  </div>
+
+  <div class="form-group">
+    <label for="startDate">Start Date: </label>
+    <input  class="form-control" id="startDate"  type="text" formControlName="startDate" placeholder="mm/dd/yyyy"/>
+  </div>
+
+  <div class="form-group">
+    <label for="endDate">End Date: </label>
+    <input class="form-control" id="endDate"  type="text" formControlName="endDate" placeholder="mm/dd/yyyy">
+  </div>
+
+  <div class="form-group">
+    <label for="startTime">Start Time: </label>
+    <input class="form-control" id="startTime"  type="text" formControlName="startTime" placeholder="please enter 24 hours format, for example 18:30">
+  </div>
+
+  <div class="form-group">
+    <label for="endTime">End Time: </label>
+    <input class="form-control" id="endTime"  type="text" formControlName="endTime" placeholder="please enter 24 hours format, for example 09:00">
+  </div>
+
+  <div class="form-group">
+    <label for="minNumberOfStudents">Minimum number of Students </label>
+    <input class="form-control" id="minNumberOfStudents"  type="text" formControlName="minNumberOfStudents" >
+  </div>
+
+  <div class="form-group">
+    <label for="maxNumberOfStudents">Maximum number of Students </label>
+    <input class="form-control" id="maxNumberOfStudents"  type="text" formControlName="maxNumberOfStudents" >
+  </div>
+
+  <div class="form-group" formArrayName="days">
+    <button (click)="addDays()">
+      Add days of the Week
+    </button>
+    <div *ngFor="let day of days.controls; let i = index">
+      <input id="days-{{i}}" type="text" [formControlName]="i" />
+      <button (click)="removeDays(i)">X</button>
+    </div>
+  </div>
+  <select id="teacher" formControlName="teacher">
+    <option [value]="null" disabled> Select Teacher</option>
+    <option *ngFor="let teacher of getAllTeachers" [value]="teacher._id"> {{teacher.name}}</option>
+  </select>
+
+    <p>Complete the form to enable button</p>
+    <button type="submit" [disabled]="!classForm.valid" [class.btn-warning]="editing">{{editing ? "Save": "Create"}}</button>
+    <button type="reset" class="btn btn-secondary" routerLink="admin/main/classRooms">
+      Cancel
+    </button>
+
+</form>
+
+<!-- <div class="form-group">
+  <button (click)="addDays()">
+    Add days of the Week
+  </button>
+  <div *ngFor="let day of days.controls; index as i">
+    <input [formControl]="days.controls[i]" />
+    <button (click)="removeDays(i)">X</button>
+  </div>
+</div> -->
+
+
+<!-- <form novalidate  #form="ngForm" (ngSubmit)="save()">
   <div class="form-group">
     <label>Class Name </label>
     <input class="form-control" name="subject" [(ngModel)]="classRoom.subject"/>
@@ -34,20 +114,15 @@
     <label>End Time</label>
     <input class="form-control" name="endTime" [(ngModel)]="classRoom.timeTable.endTime" placeholder="please enter 24 hours format"/>
   </div>
-  <div class="form-group">
-    <button (click)="addDays()">
-      Add days of the Week
-    </button>
-    <div *ngFor="let day of days.controls; index as i">
-      <input [formControl]="days.controls[i]" />
-      <button (click)="removeDays(i)">X</button>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Teacher Name</label>
+  -->
+   <!--<div class="form-group">
+
     <!-- <input class="form-control" name="teacherName" [(ngModel)]="classRoom.teacher"/> -->
-  </div>
-  <div class="form-group">
+    <!-- <select [(ngModel)]="selectedTeacher" class="form-control" (change)="selectTeacher(selectedTeacher)">
+      <option *ngFor="let teacher of getAllTeachers" [ngValue]="teacher"> {{teacher.name}}</option>
+    </select>
+   </div> -->
+  <!-- <div class="form-group">
     <label>More info editing will come here...</label>
   </div>
   <button type="submit" class="btn btn-primary m-1" [class.btn-warning]="editing">
@@ -57,5 +132,5 @@
     Cancel
   </button>
 </form>
-
+ -->
 

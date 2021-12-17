@@ -19,7 +19,7 @@
       <td>{{c.teacher.name}}</td>
       <td>
         <button class="btn btn-sm btn-warning m-1" [routerLink]="['/admin/main/classRooms/edit',c._id]">Edit</button>
-        <button class="btn btn-sm btn-danger" (click)="deleteClassRoom(c.id)">Delete</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteClassRoom(c._id)">Delete</button>
       </td>
     </tr>
   </tbody>

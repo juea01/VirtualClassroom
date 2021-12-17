@@ -12,7 +12,7 @@ export class TeacherRepository {
      /* if admin then load data as per pagination counts (for example login user is admin) otherwise only
        load for this student
     */
-   if (helperService.getSignInMode() === "student"){
+   if (helperService.getSignInMode() === "teacher"){
       dataSource.getTeacherByName(this.helperService.getSignedInUser()).subscribe(data => {
       this.teachers.push(data);
       });
@@ -25,6 +25,10 @@ export class TeacherRepository {
 
   getTeacher(id: string): Teacher {
     return this.teachers.find(t => t._id == id);
+  }
+
+  getTeachers():Teacher[]{
+    return this.teachers;
   }
 
   getTeacherByName(name: string): Teacher {
