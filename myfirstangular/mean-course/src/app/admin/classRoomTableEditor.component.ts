@@ -88,7 +88,11 @@ get getAllTeachers():Teacher[] {
         this.classRoom.timeTable.numberOfDaysAWeek.push(day.value);
       }
 
-      this.classRoom.teacher = this.repository.getClassRoom(this.classForm.get('teacher').value);
+
+      console.log("Teacher from form"+this.classForm.get('teacher').value);
+      console.log("Teacher from form"+this.teacherRepo.getTeacher(this.classForm.get('teacher').value));
+
+      this.classRoom.teacher = this.teacherRepo.getTeacher(this.classForm.get('teacher').value);
       this.classRoom.subject = this.classForm.get('subject').value;
       this.classRoom.category = this.classForm.get('category').value;
       this.classRoom.description = this.classForm.get('description').value;
