@@ -35,7 +35,7 @@ export class ClassRoomTableEditorComponent { //implements OnInit {
       days: this.fb.array([
         this.fb.control('')
       ]),
-      teacher:[null]
+      teacher: new FormControl(null)
 
     });
 
@@ -51,7 +51,7 @@ export class ClassRoomTableEditorComponent { //implements OnInit {
       this.classForm.get('endTime').setValue(this.classRoom.timeTable.endTime);
       this.classForm.get('minNumberOfStudents').setValue(this.classRoom.minNumberStudents);
       this.classForm.get('maxNumberOfStudents').setValue(this.classRoom.maxNumberStudents);
-      this.classForm.get('teacher').patchValue(this.classRoom.teacher);
+      this.classForm.get('teacher').setValue(this.classRoom.teacher._id);
 
 
 
